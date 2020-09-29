@@ -1,10 +1,11 @@
 const fs = require('fs');
+const path = require('path');
 const { Sequelize } = require('sequelize');
 const dbConfig = require('@config/db');
 
 const init = () => {
     const sequelize = new Sequelize({ ...dbConfig });
-    const modelsDirectory = 'src/main/models';
+    const modelsDirectory = path.resolve(__dirname, '../models');
 
     const models = Object.assign(
         {},
