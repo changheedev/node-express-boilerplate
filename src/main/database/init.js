@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { Sequelize } = require('sequelize');
-const dbConfig = require('@config/db.config');
+const dbConfig = require('@config/db');
 
 const init = () => {
     const sequelize = new Sequelize({ ...dbConfig });
