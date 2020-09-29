@@ -6,6 +6,8 @@
 
 -   Sequelize ORM
 
+-   JsonWebToken
+
 <br>
 
 ## 실행
@@ -49,6 +51,8 @@ npm run test
 -   sequelize : ORM
 
 -   cors : cors 설정 미들웨어
+
+-   jsonwebtoken : JWT 발급 / 검증 라이브러리
 
 -   nodemon : 개발시 코드 변경을 감지하여 서버를 재실행 해주는 라이브러리
 
