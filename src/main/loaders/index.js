@@ -1,8 +1,8 @@
 const sequelizeLoader = require('@/loaders/sequelize');
 const expressLoader = require('@/loaders/express');
 
-const init = (app) => {
-    sequelizeLoader();
+const init = async (app) => {
+    await sequelizeLoader();
     expressLoader(app);
 };
 

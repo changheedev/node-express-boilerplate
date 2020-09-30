@@ -1,9 +1,8 @@
 const { Sequelize } = require('sequelize');
 const dbConfig = require('@config/db');
 const models = require('@models');
-const eventBus = require('@events/event-bus');
 
-const sequelizeLoader = () => {
+const sequelizeLoader = async () => {
     const sequelize = new Sequelize({ ...dbConfig });
 
     Object.values(models).forEach((model) => {
@@ -13,9 +12,7 @@ const sequelizeLoader = () => {
     if (process.env.NODE_ENV !== 'production') {
         const syncOption =
             process.env.NODE_ENV === 'development' ? {} : { force: true };
-        sequelize.sync(syncOption).then(() => {
-            eventBus.emit('sequelize-load');
-        });
+        await sequelize.sync(syncOption);
     }
 };
 

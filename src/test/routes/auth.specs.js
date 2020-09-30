@@ -3,14 +3,13 @@ const request = require('supertest');
 const app = require('../../main/app');
 const User = require('@models/user');
 const agent = request(app);
-const eventBus = require('@events/event-bus');
 
 describe('Authentication API tests', () => {
     describe('POST /auth/authorize', () => {
         beforeEach((done) => {
-            eventBus.on('sequelize-load', () => {
-                done();
-            });
+            User.destroy({
+                truncate: true,
+            }).then(() => done());
         });
 
         it('로그인에 성공하면 JWT 토큰을 응답한다', (done) => {
