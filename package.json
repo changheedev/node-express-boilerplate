@@ -12,7 +12,8 @@
         "@routes": "./src/main/routes",
         "@config": "./src/main/config",
         "@loaders": "./src/main/loaders",
-        "@models": "./src/main/models"
+        "@models": "./src/main/models",
+        "@utils": "./src/main/utils"
     },
     "dependencies": {
         "bcrypt": "^5.0.0",
