@@ -11,7 +11,7 @@
         "@": "./src/main",
         "@routes": "./src/main/routes",
         "@config": "./src/main/config",
-        "@db": "./src/main/database",
+        "@loaders": "./src/main/loaders",
         "@models": "./src/main/models"
     },
     "dependencies": {
