@@ -12,7 +12,7 @@ const testUser = {
     email: 'test@email.com',
 };
 
-describe.only('JwtProvider util class tests', () => {
+describe('JwtProvider util class tests', () => {
     describe('Generate token tests', () => {
         it('토큰은 문자열 "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"로 시작한다', () => {
             //given
