@@ -19,7 +19,7 @@ const sequelizeLoader = async () => {
 
     if (process.env.NODE_ENV !== 'production') {
         const syncOption =
-            process.env.NODE_ENV === 'development' ? {} : { force: true };
+            process.env.NODE_ENV === 'test' ? { force: true } : {};
         await sequelize.sync(syncOption);
     }
 };
