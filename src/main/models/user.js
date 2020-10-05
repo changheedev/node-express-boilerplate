@@ -35,8 +35,6 @@ const scheme = {
 
 const initOptions = {
     tableName: 'users',
-    engine: 'InnoDB',
-    charset: 'utf8',
     indexes: [{ unique: true, fields: ['email'] }],
     timestamps: false,
     hooks: {

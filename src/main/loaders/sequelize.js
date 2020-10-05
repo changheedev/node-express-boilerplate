@@ -3,7 +3,15 @@ const dbConfig = require('@config/db');
 const models = require('@models');
 
 const sequelizeLoader = async () => {
-    const sequelize = new Sequelize({ ...dbConfig });
+    const sequelize = new Sequelize({
+        ...dbConfig,
+        define: {
+            engine: 'InnoDB',
+            charset: 'utf8mb4',
+            collate: 'utf8mb4_unicode_ci',
+            underscored: true,
+        },
+    });
 
     Object.values(models).forEach((model) => {
         model.init(sequelize);
