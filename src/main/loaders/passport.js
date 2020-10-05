@@ -4,11 +4,9 @@ const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 const LocalStrategy = require('passport-local').Strategy;
 const jwtConfig = require('@config/jwt');
-const models = require('@models');
+const User = require('@models/user');
 
 const passportLoader = () => {
-    const User = models.user;
-
     const strategyOptions = {
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
         secretOrKey: jwtConfig.secret,

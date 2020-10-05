@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 const dbConfig = require('@config/db');
-const models = require('@models');
+const Models = require('@models');
 
 const sequelizeLoader = async () => {
     const sequelize = new Sequelize({
@@ -13,15 +13,16 @@ const sequelizeLoader = async () => {
         },
     });
 
-    Object.values(models).forEach((model) => {
-        model.init(sequelize);
-    });
+    Models.initialize(sequelize);
 
     if (process.env.NODE_ENV !== 'production') {
-        const syncOption =
-            process.env.NODE_ENV === 'test' ? { force: true } : {};
-        await sequelize.sync(syncOption);
+        await syncTables(sequelize);
     }
+};
+
+const syncTables = async (sequelize) => {
+    const syncOption = process.env.NODE_ENV === 'test' ? { force: true } : {};
+    await sequelize.sync(syncOption);
 };
 
 module.exports = sequelizeLoader;
