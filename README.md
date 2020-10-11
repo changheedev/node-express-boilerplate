@@ -34,8 +34,11 @@ npm install
 //개발 모드로 실행
 npm run dev
 
-//테스트 실행
-npm run test
+//유닛 테스트 실행
+npm run test:unit
+
+//API 테스트 실행
+npm run test:api
 ```
 
 <br>
