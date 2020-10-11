@@ -2,10 +2,6 @@ const { Sequelize } = require('sequelize');
 const dbConfig = require('@config/db');
 const User = require('@models/user');
 
-const models = {
-    user: User,
-};
-
 const sequelize = new Sequelize({
     ...dbConfig,
     define: {
@@ -16,13 +12,21 @@ const sequelize = new Sequelize({
     },
 });
 
-const initialize = () => {
+const models = {
+    user: User,
+};
+
+const initModels = (models, sequelize) => {
     Object.values(models).forEach((model) => {
         model.init(sequelize);
     });
 };
 
-module.exports = {
-    initialize,
-    sequelize,
+const setAssociations = () => {
+    //연관관계 설정
 };
+
+initModels(models, sequelize);
+setAssociations();
+
+module.exports = sequelize;
